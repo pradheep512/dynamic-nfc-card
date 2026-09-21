@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dynamic NFC Card
 
-## Getting Started
+A prototype exploring a simple idea:
 
-First, run the development server:
+**What if one physical NFC card could serve multiple purposes without needing to be rewritten?**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The NFC card contains one permanent URL. Through a web dashboard, the owner can save different destinations and choose which one is currently active.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The same physical card can therefore switch between LinkedIn, GitHub, a resume, portfolio, Letterboxd, Goodreads, Spotify, or any custom URL.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NFC Card  
+↓  
+Permanent URL  
+↓  
+Next.js  
+↓  
+Supabase  
+↓  
+Active Destination  
+↓  
+LinkedIn / GitHub / Resume / etc.
 
-## Learn More
+Changing the active destination in the dashboard changes what the NFC card opens without modifying the NFC tag itself.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- User authentication
+- Personal dashboard
+- Save multiple destinations
+- Switch active destination
+- Add custom URLs
+- Dynamic NFC redirects
+- Supabase Row Level Security
+- Public NFC access without requiring the recipient to install an app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+- **Next.js**
+- **TypeScript**
+- **Supabase**
+- **Vercel**
+- **NFC / NDEF**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Live Prototype
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://just-tap-five.vercel.app
+
+## Example
+
+The NFC tag stores:
+
+`https://just-tap-five.vercel.app/t/abc123`
+
+If LinkedIn is active:
+
+NFC → `/t/abc123` → LinkedIn
+
+Change the active destination to GitHub:
+
+NFC → `/t/abc123` → GitHub
+
+The NFC tag itself is never rewritten.
+
+## Status
+
+Early prototype / proof of concept.
+
+The project was built to explore dynamic NFC routing and how a single physical NFC card could adapt to different use cases.
