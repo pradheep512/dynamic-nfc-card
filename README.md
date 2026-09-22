@@ -1,3 +1,9 @@
+
+Link to the Demo Video below:
+https://github.com/user-attachments/assets/9e56d218-af0c-48d5-89ee-3ee4257eb6c1
+
+
+
 # Dynamic NFC Card
 
 A prototype exploring a simple idea:
